@@ -29,6 +29,15 @@ const routeHandler = (req, res) => {
             res.end();
         });
     }
+    else if(req.url === '/contact' && req.method === "GET"){ //contact
+        fs.readFile('contact.html', (err, html) => {
+            res.writeHead(200, "OK", {"Content-Type": "text/html"});
+
+            res.write(html);
+            
+            res .end();
+        })
+    }
     else if(req.url === '/contact' && req.method === "POST"){ //contact post method
         const data = [];
 
@@ -52,15 +61,6 @@ const routeHandler = (req, res) => {
             })
         });
 
-    }
-    else if(req.url === '/contact'){ //contact
-        fs.readFile('contact.html', (err, html) => {
-            res.writeHead(200, "OK", {"Content-Type": "text/html"});
-
-            res.write(html);
-            
-            res.end();
-        })
     }
     else{ //404
         fs.readFile('404.html', (err,html) => {
