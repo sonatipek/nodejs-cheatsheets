@@ -1,0 +1,25 @@
+<div class="list-group">
+    <% data.categories.forEach(category => { %>
+        <a href="#" class="list-group-item list-group-item-action text-danger fw-bold">
+            <%= category %>
+            <% data.blogs.forEach(blog => { %>
+                <% if (category === blog.category) { %>
+                    
+                    <% if (parseInt(blogid) === blog.blogid) { %>
+                        <a href="/blogs/<%= blog.blogid %>" class="fw-bold list-group-item list-group-item-action text-muted ps-5">
+                            <%= blog.title %>
+                        </a>
+                    <% }else{ %>
+                        <a href="/blogs/<%= blog.blogid %>" class="list-group-item list-group-item-action text-muted ps-5">
+                            <%= blog.title %>
+                        </a>
+                    <% } %>
+
+                <% } %>
+                
+            <% }) %>
+            
+        </a>
+    <% }) %>
+
+</div>
