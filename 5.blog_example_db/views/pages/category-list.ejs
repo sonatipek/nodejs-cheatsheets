@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs', {title: "Category List"}) %>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('../partials/navbar') %>
+
+    <!-- Blog Posts -->
+    <h1 class="h3 text-center">
+        Category List
+    </h1>
+
+    <div class="container mt-3">
+        <div class="row">
+            <!-- Categories -->
+            <div class="col-md-3">
+               
+                <div class="list-group">
+                    
+                    <% categories.forEach(categoryEl => { %>   
+                        <a href="/blogs/category/<%= categoryEl.category_id %>" class="list-group-item list-group-item-action text-danger fw-bold <%= selectedCategory == categoryEl.category_id ? "bg-danger-subtle" : "" %>">
+
+                            <%= categoryEl.category_name %>
+                            
+                            <% blogs.forEach(blog => { %>   
+                                <% if (categoryEl.category_id == blog.category) { %>
+                                    <a href="/blogs/<%= blog.blogid %>" class="list-group-item list-group-item-action text-muted ps-5">
+                                        <%= blog.title %>
+                                    </a>
+                                    
+                                <% } %>
+                                
+                            <% }) %>
+                            
+                        </a>
+                        
+                    <% }) %>
+                    
+                </div>
+            </div>
+            <div class="col-md-9">
+                <% blogs.forEach(blog => { %>
+                    <%- include('../partials/cards', {blog}) %>
+                <% }) %>
+                     
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

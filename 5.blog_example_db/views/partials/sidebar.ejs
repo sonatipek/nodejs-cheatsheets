@@ -1,0 +1,23 @@
+
+<div class="list-group">
+    
+    <% categories.forEach(categoryEl => { %>   
+        <a href="/blogs/category/<%= categoryEl.category_id %>" class="list-group-item list-group-item-action text-danger fw-bold">
+
+            <%= categoryEl.category_name %>
+            
+            <% blogs.forEach(blog => { %>   
+                <% if (categoryEl.category_id == blog.category) { %>
+                    <a href="/blogs/<%= blog.blogid %>" class="list-group-item list-group-item-action text-muted ps-5">
+                        <%= blog.title %>
+                    </a>
+                    
+                <% } %>
+                
+            <% }) %>
+            
+        </a>
+        
+    <% }) %>
+    
+</div>

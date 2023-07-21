@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs', {title: "Blog"}) %>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('../partials/navbar') %>
+
+    <h1 class="h3 text-center">
+        All Blog Posts
+    </h1>
+    
+    <!-- Blog Posts -->
+    <div class="container mt-3">
+        <div class="row">
+            <!-- Categories -->
+            <div class="col-md-3">
+                <%- include('../partials/sidebar') %>
+
+            </div>
+
+            <!-- Post Cards -->
+            <div class="col-md-9">
+                <% blogs.forEach(blog => { %>
+                    <%- include('../partials/cards', {blog}) %>
+                    
+                <% }) %>
+
+                <!-- Pagination -->
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a href="" class="page-link disabled">Previous</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="" class="page-link active">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="" class="page-link">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="" class="page-link">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
