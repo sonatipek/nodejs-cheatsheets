@@ -11,4 +11,4 @@ DB_PASSWORD="..."
 DB_HOST="..."
 DB_NAME=".."
 ```
-You can click this link for the advanced version of the project:
+You can click this link for the advanced version of the project: https://github.com/sonatipek/blogapp
